@@ -16,17 +16,17 @@ namespace IT3047CGroupProject.Controllers
             var cameras = context.Cameras.ToList();
             return View(cameras);
         }
-        [Route("/Locations")]
-        public IActionResult Locations(string category)
+        [Route("/Locations/{id?}")]
+        public IActionResult Locations(string id)
         {
 
             var categories = context.Category.OrderBy(c => c.CategoryName).ToList();
             var catID = categories
-                .Where(c => c.CategoryName == category)
+                .Where(c => c.CategoryName == id)
                 .Select(c => c.CategoryId)
                 .FirstOrDefault();
             List<Location> locations;
-            if (string.IsNullOrEmpty(category))
+            if ((string.IsNullOrEmpty(id)) || (id == "All"))
             {
                 locations = context.Location
                     .OrderBy(l => l.LocationName).ToList();
@@ -41,7 +41,7 @@ namespace IT3047CGroupProject.Controllers
             {
                 Locations = locations,
                 Categories = categories,
-                SelectedCategory = category
+                SelectedCategory = id
             };
             return View(model);
         }
