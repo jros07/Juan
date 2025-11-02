@@ -8,6 +8,8 @@ namespace IT3047CGroupProject.Models
         {
         }
         public DbSet<Camera> Cameras { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Location> Location { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
