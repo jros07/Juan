@@ -1,0 +1,30 @@
+﻿@model List<Camera>
+@{
+    ViewBag.Title = "Camera Options";
+}
+<h2>Tanner Patrick Camera Options List</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Camera in Model)
+        {
+            <tr>
+                <td>@Camera.CameraId</td>
+                <td>@Camera.CameraName</td>
+                <td>@Camera.CameraBrand</td>
+                <td>@Camera.CameraModel</td>
+                <td>@Camera.CameraPrice.ToString("C")</td>
+                <td>@Camera.CameraDescription</td>
+            </tr>
+        }
+    </tbody>
+</table>
