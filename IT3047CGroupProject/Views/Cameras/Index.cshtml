@@ -1,0 +1,32 @@
+﻿@model List<IT3047CGroupProject.Models.Camera>
+@{
+    ViewData["Title"] = "Our Camera Collection";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Camera Collection</h1>
+    <p class="lead text-muted">Browse the gear that defines our photography journey.</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var camera in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-header bg-dark text-white text-center py-3">
+                    <h4 class="m-0">@camera.CameraBrand</h4>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title text-primary">@camera.CameraModel</h5>
+                    <h6 class="card-subtitle mb-3 text-muted">@camera.CameraPrice.ToString("C")</h6>
+                    <p class="card-text">@camera.CameraDescription</p>
+                </div>
+
+                <div class="card-footer bg-transparent border-top-0 pb-3">
+                    <button class="btn btn-outline-dark w-100 disabled">Details (Coming Soon)</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>

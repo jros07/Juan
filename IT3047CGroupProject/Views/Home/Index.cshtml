@@ -1,30 +1,34 @@
-﻿@model List<Camera>
-@{
-    ViewBag.Title = "Camera Options";
+﻿@{
+    ViewData["Title"] = "Home Page";
 }
-<h2>Tanner Patrick Camera Options List</h2>
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Price</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var Camera in Model)
-        {
-            <tr>
-                <td>@Camera.CameraId</td>
-                <td>@Camera.CameraName</td>
-                <td>@Camera.CameraBrand</td>
-                <td>@Camera.CameraModel</td>
-                <td>@Camera.CameraPrice.ToString("C")</td>
-                <td>@Camera.CameraDescription</td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm text-center">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome to Our Lens</h1>
+        <p class="col-md-8 fs-4 mx-auto">
+            Photography is more than just clicking a button—it's about capturing a moment, a feeling, and a story.
+            Explore our favorite gear, discover breathtaking locations, and learn the tips we use every day.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+            <a class="btn btn-primary btn-lg px-4 gap-3" asp-controller="Cameras" asp-action="Index">View Cameras</a>
+            <a class="btn btn-outline-secondary btn-lg px-4" asp-controller="Home" asp-action="Locations">Explore Locations</a>
+        </div>
+    </div>
+</div>
+
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Learn the Craft</h2>
+            <p>New to photography? We've compiled some quick tips to help you master composition, lighting, and camera settings.</p>
+            <a class="btn btn-outline-light" asp-controller="Resources" asp-action="Tips">Read Tips</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Meet the Team</h2>
+            <p>This project was built by Tanner, Shawn, and Juan. Learn more about why we chose this hobby and how we built this site.</p>
+            <a class="btn btn-outline-dark" asp-controller="Resources" asp-action="About">About Us</a>
+        </div>
+    </div>
+</div>
